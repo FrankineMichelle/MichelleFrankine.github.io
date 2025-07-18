@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WELCOME</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('assets/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    button {
+      background-color: #2196F3;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 0 10px #2196F3aa;
+      transition: background-color 0.3s ease;
+      margin: 2rem auto;
+      display: block;
+    }
+    button:hover {
+      background-color: #0b7dda;
+    }
+    #topRightSection {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 250px;
+      font-family: 'Courier New', monospace;
+      box-shadow: 0 0 10px #000000aa;
+      z-index: 1000;
+      text-align: left;
+    }
+    #bottomLeftImage {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      box-shadow: 0 0 10px #000000aa;
+    }
+    #bottomLeftImage img {
+      max-width: 150px;
+      border-radius: 10px;
+      display: block;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 28px;
+      margin-top: 0;
+    }
+    p {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    audio {
+      display: none;
+    }
+    .rainbow-text {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 5s ease infinite;
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 20px;
+    }
+    .gallery-img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION FIXE EN HAUT À DROITE -->
+  <div id="topRightSection">
+    <h3>18/07/2025</h3>
+    <p>j'ai fais le 100% de road 96 comme prévu (ez) et sinon bah j'ai codé sur le reste de la journée...</p>
+  </div>
+
+  <!-- TITRE PRINCIPAL -->
+  <h1>Welcome 2 My Life</h1>
+  <h2>Shoota Playboi Carti</h2>
+  <p class="rainbow-text">Free Larry Hoover</p>
+
+  <!-- BOUTON MUSIQUE (PLACÉ ICI) -->
+  <button id="playBtn">▶ Écouter ta musique</button>
+  <audio id="audioPlayer" loop>
+    <source src="assets/test.mp3" type="audio/mpeg" />
+    Ton navigateur ne supporte pas la lecture audio.
+  </audio>
+
+  <script>
+    const btn = document.getElementById('playBtn');
+    const audio = document.getElementById('audioPlayer');
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = '⏸️ Pause la musique';
+      } else {
+        audio.pause();
+        btn.textContent = '▶ Écouter ta musique';
+      }
+    });
+  </script>
+
+  <!-- IMAGE EN BAS À GAUCHE -->
+  <div id="bottomLeftImage">
+    <img src="assets/tonimage.jpg" alt="Ma photo" />
+  </div>
+
+  <!-- VIDÉO DU JOUR -->
+  <div style="position: fixed; top: 20px; left: 20px; z-index: 10;">
+    <h2 style="font-size: 16px; margin-bottom: 5px; color: white;">🎥 Vidéo du jour</h2>
+    <video width="240" controls style="border: 2px solid white; border-radius: 8px;">
+      <source src="assets/video-du-jour.mp4" type="video/mp4">
+      Ton navigateur ne supporte pas la vidéo HTML5.
+    </video>
+  </div>
+
+  <!-- GALERIE D'IMAGES -->
+  <div class="gallery">
+    <a href="https://www.glamira.fr/glamira-bague-gisu.html?alloy=yellow-585&stone1=emerald&stone2=ruby&stone3=emerald" target="_blank">
+      <img src="assets/gallery1.jpg" class="gallery-img">
+    </a>
+    <a href="https://www.speedrun.com/fr-FR/One_Armed_Robber/runs/z003erjz" target="_blank">
+      <img src="assets/gallery2.jpg" class="gallery-img">
+    </a>
+    <a href="https://www.nyan.cat/index.php?cat=original" target="_blank">
+      <img src="assets/gallery3.jpg" class="gallery-img">
+    </a>
+  </div>
+
+  <!-- CONFETTI -->
+  <img id="confetti-launcher" src="assets/confetti.gif" style="position: fixed; bottom: 20px; right: 20px; width: 80px; cursor: pointer; z-index: 999;">
+  <script>
+    document.getElementById("confetti-launcher").addEventListener("click", () => {
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement("img");
+        confetti.src = "assets/confetti.gif";
+        confetti.style.position = "fixed";
+        confetti.style.width = "30px";
+        confetti.style.left = `${window.innerWidth / 2}px`;
+        confetti.style.top = `${window.innerHeight / 2}px`;
+        confetti.style.zIndex = 999;
+        confetti.style.pointerEvents = "none";
+        document.body.appendChild(confetti);
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 300;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        confetti.animate([
+          { transform: "translate(0, 0)", opacity: 1 },
+          { transform: `translate(${x}px, ${y}px)`, opacity: 0 }
+        ], {
+          duration: 1000 + Math.random() * 500,
+          easing: "ease-out",
+          fill: "forwards"
+        });
+
+        setTimeout(() => confetti.remove(), 1500);
+      }
+    });
+  </script>
+
+  <!-- POST-IT GOOGLE FORM -->
+  <div style="position: absolute; top: 420px; left: 150px; background: #fff59d; padding: 15px; width: 250px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); transform: rotate(-2deg); z-index: 999;">
+    <h3 style="margin: 0; font-family: Comic Sans MS, cursive; font-size: 1.2em;">💬 Laisse un mot :</h3>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScchqEdGx9Lwo1HAcTP7Ycs_xnJDZmcCP5GH4oNchQsNSy99A/viewform?embedded=true" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+  </div>
+
+</body>
+</html>
