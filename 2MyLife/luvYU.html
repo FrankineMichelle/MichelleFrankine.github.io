@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background: url('assets/background.gif') no-repeat center center fixed;
+      background: url('assets/background.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       font-family: Arial, sans-serif;
@@ -113,13 +113,13 @@
   <!-- SECTION FIXE EN HAUT À DROITE -->
   <div id="topRightSection">
     <h3>19/07/2025</h3>
-    <p>j'ai juste regarder des vidéos et codé cette merde regarder sur pc pas sur tel<p>
+    <p>j'ai joué à cs et codé</p>
   </div>
 
   <!-- TITRE PRINCIPAL -->
-  <h1>Welcome 2 My Life</h1>
-  <h2>Nyanyanyanyanyanyanya! daniwellP</h2>
-  <p class="rainbow-text">Man on the Moon: The End of Day still his best album</p>
+  <h1 style="color: #00c1ff;">Welcome 2 My Life</h1>
+  <h2 style="color: #00c1ff;">Brothers Kanye west (unreleased)</h2>
+  <p style="font-size: 40px; color: #00c1ff; font-weight: bold;">Vrigil Abloh 1980-2021</p>
 
   <!-- BOUTON MUSIQUE (PLACÉ ICI) -->
   <button id="playBtn">▶ Écouter ta musique</button>
@@ -158,26 +158,39 @@
 
   <!-- GALERIE D'IMAGES -->
   <div class="gallery">
-    <a href="https://www.glamira.fr/glamira-bague-gisu.html?alloy=yellow-585&stone1=emerald&stone2=ruby&stone3=emerald" target="_blank">
-      <img src="assets/gallery1.gif" class="gallery-img">
+    <a href="https://papertoilet.com/" target="_blank">
+      <img src="assets/gallery1.png" class="gallery-img">
     </a>
-    <a href="https://cat-bounce.com/" target="_blank">
-      <img src="assets/gallery2.jpg" class="gallery-img">
+    <a href="https://theuselessweb.com/" target="_blank">
+      <img src="assets/gallery2.png" class="gallery-img">
     </a>
-    <a href="https://www.off---white.com/en-fr/"_blank">
-      <img src="assets/gallery3.jpg" class="gallery-img">
+    <a href="https://yeezy.com/"_blank">
+      <img src="assets/gallery3.webp" class="gallery-img">
     </a>
   </div>
 
   <!-- CONFETTI -->
-  <img id="confetti-launcher" src="assets/confetti.gif" style="position: fixed; bottom: 20px; right: 20px; width: 80px; cursor: pointer; z-index: 999;">
+  <img id="confetti-launcher" src="assets/canon.jpg" style="position: fixed; bottom: 20px; right: 20px; width: 80px; cursor: pointer; z-index: 999;">
   <script>
+   const confettiImages = [
+     "assets/album1.jpg",
+     "assets/album2.jpg",
+     "assets/album3.png",
+     "assets/album4.jpg",
+     "assets/album5.jpg",
+     "assets/album6.webp"
+     ];
+
     document.getElementById("confetti-launcher").addEventListener("click", () => {
-      for (let i = 0; i < 12; i++) {
-        const confetti = document.createElement("img");
-        confetti.src = "assets/confetti.gif";
+      for (let i = 0; i <1; i++) {
+       const confetti = document.createElement("img");
+      
+      // Choisit une image aléatoire dans le tableau
+        const randomImage = confettiImages[Math.floor(Math.random() * confettiImages.length)];
+        confetti.src = randomImage;
+
         confetti.style.position = "fixed";
-        confetti.style.width = "700px";
+        confetti.style.width = "100px";
         confetti.style.left = `${window.innerWidth / 2}px`;
         confetti.style.top = `${window.innerHeight / 2}px`;
         confetti.style.zIndex = 999;
@@ -198,7 +211,7 @@
           fill: "forwards"
         });
 
-        setTimeout(() => confetti.remove(), 3000);
+        setTimeout(() => confetti.remove(), 5000);
       }
     });
   </script>
